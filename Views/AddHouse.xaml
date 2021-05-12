@@ -1,0 +1,113 @@
+﻿<Page x:Class="KP.Views.AddHouse"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddHouse">
+
+    <Grid Background="{DynamicResource PrimaryHueLightBrush}">
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.ColumnSpan="4">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <TextBlock Text="Add house"
+                   Grid.Column="0"
+                   Background="{DynamicResource PrimaryHueMidBrush}"
+                   FontSize="25"
+                   Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"
+                   TextAlignment="Center"
+                   Padding="12"
+                   FontFamily="Bahnschrift SemiBold SemiCondensed"
+                   Grid.ColumnSpan="3"/>
+            
+            <Button Command="{Binding BtnClickBack}" Grid.Column="1">
+                <Grid>
+                    <materialDesign:PackIcon Kind="ArrowLeft"/>
+                </Grid>
+            </Button>
+            
+        </Grid>
+
+
+        <TextBox materialDesign:HintAssist.Hint="Street"
+                 Text="{Binding Street}" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"
+                 Style="{DynamicResource MaterialDesignFloatingHintTextBox}"
+                 VerticalAlignment="Bottom" Margin="0,0,30,10"
+                 FontSize="14" FontWeight="SemiBold"
+                 materialDesign:ValidationAssist.Background="{DynamicResource PrimaryHueLightBrush}"/>
+
+        <TextBox materialDesign:HintAssist.Hint="House number *"
+                 Text="{Binding HouseNum}" Grid.Row="3" Grid.Column="1"
+                 Style="{DynamicResource MaterialDesignFloatingHintTextBox}" 
+                 VerticalAlignment="Bottom"  Margin="0,0,30,10"
+                 FontSize="14" FontWeight="SemiBold" 
+                 materialDesign:ValidationAssist.Background="{DynamicResource PrimaryHueLightBrush}"/>
+
+        <TextBox materialDesign:HintAssist.Hint="Apartment number"
+                 Text="{Binding ApartmentNum}"  Grid.Row="3" Grid.Column="2"
+                 Style="{DynamicResource MaterialDesignFloatingHintTextBox}"
+                 VerticalAlignment="Bottom"  Margin="0,0,30,10"  FontSize="14" FontWeight="SemiBold"
+                 materialDesign:ValidationAssist.Background="{DynamicResource PrimaryHueLightBrush}"/>
+
+        <TextBox materialDesign:HintAssist.Hint="Area *"
+                 Text="{Binding Area}" Grid.Row="4" Grid.Column="1"
+                 Style="{DynamicResource MaterialDesignFloatingHintTextBox}"
+                 VerticalAlignment="Bottom"  Margin="0,0,30,10"
+                 FontSize="14" FontWeight="SemiBold"
+                 materialDesign:ValidationAssist.Background="{DynamicResource PrimaryHueLightBrush}"/>
+
+        <TextBox materialDesign:HintAssist.Hint="Number of rooms *"
+                 Text="{Binding RoomsNum}" Grid.Row="4" Grid.Column="2"
+                 Style="{DynamicResource MaterialDesignFloatingHintTextBox}"
+                 VerticalAlignment="Bottom" Margin="0,0,30,10"
+                 FontSize="14" FontWeight="SemiBold" 
+                 materialDesign:ValidationAssist.Background="{DynamicResource PrimaryHueLightBrush}"/>
+
+        <TextBox materialDesign:HintAssist.Hint="Number of people *"
+                 Text="{Binding PeopleNum}" Grid.Row="5" Grid.Column="1"
+                 Style="{DynamicResource MaterialDesignFloatingHintTextBox}"
+                 VerticalAlignment="Bottom"  Margin="0,0,10,10"
+                 FontSize="14" FontWeight="SemiBold" 
+                 materialDesign:ValidationAssist.Background="{DynamicResource PrimaryHueLightBrush}"/>
+
+        <TextBox materialDesign:HintAssist.Hint="The indicator of the counter *"
+                 Text="{Binding HeatMeter}" Grid.Row="5" Grid.Column="2"
+                 Style="{DynamicResource MaterialDesignFloatingHintTextBox}"
+                 VerticalAlignment="Bottom"  Margin="0,0,10,10"
+                 FontSize="14" FontWeight="SemiBold" 
+                 materialDesign:ValidationAssist.Background="{DynamicResource PrimaryHueLightBrush}"/>
+
+        <Button Content="Add house"
+                Command="{Binding BtnClickAddHouse}" Grid.Column="1" Grid.Row="6"
+                Style="{DynamicResource MaterialDesignRaisedDarkButton}"
+                Grid.ColumnSpan="2" HorizontalAlignment="Center" Width="200"/>
+
+    </Grid>
+    
+</Page>

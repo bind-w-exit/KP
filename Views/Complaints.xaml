@@ -1,0 +1,144 @@
+﻿<Page x:Class="KP.Views.Complaints"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Complains">
+    
+    <materialDesign:DialogHost 
+        IsOpen="{Binding IsDialogOpen}"
+        DialogContent="{Binding DialogContent}"
+        CloseOnClickAway="True"
+        OverlayBackground="{DynamicResource PrimaryHueDarkBrush}"
+        DialogTheme="Inherit">
+
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="70"/>
+            </Grid.RowDefinitions>
+
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="20"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="Your complaints"
+                   Grid.ColumnSpan="3"
+                   Background="{DynamicResource PrimaryHueMidBrush}"
+                   FontSize="25"
+                   Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"
+                   TextAlignment="Center"
+                   Padding="12"
+                   FontFamily="Bahnschrift SemiBold SemiCondensed"/>
+
+            </Grid>
+
+            <ListView ItemsSource="{Binding ComplaintsList}"
+                  Grid.Row="1"
+                  SelectedItem="{Binding SelectedComplaint}">
+
+                <ListView.View>
+
+                    <GridView>
+
+                        <GridViewColumn Width="300">
+
+                            <GridViewColumnHeader HorizontalAlignment="Center">
+                                <TextBlock Text="Brief description" FontSize="16"/>
+                            </GridViewColumnHeader>
+
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Description}" TextWrapping="Wrap" FontWeight="SemiBold"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+
+                        </GridViewColumn>
+
+                        <GridViewColumn Width="150">
+
+                            <GridViewColumnHeader HorizontalAlignment="Center">
+                                <TextBlock Text="District" FontSize="16"/>
+                            </GridViewColumnHeader>
+
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding District.Name}" FontWeight="SemiBold" Margin="50,0,0,0"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+
+                        </GridViewColumn>
+
+                        <GridViewColumn Width="150">
+
+                            <GridViewColumnHeader HorizontalAlignment="Center">
+                                <TextBlock Text="Status" FontSize="16"/>
+                            </GridViewColumnHeader>
+
+
+                            <GridViewColumn.CellTemplate>
+                                <ItemContainerTemplate>
+                                    <TextBlock Text="{Binding Status}" FontWeight="SemiBold" Margin="50,0,0,0"/>
+                                </ItemContainerTemplate>
+                            </GridViewColumn.CellTemplate>
+
+                        </GridViewColumn>
+
+                        <GridViewColumn Width="150">
+
+                            <GridViewColumnHeader HorizontalAlignment="Center">
+                                <TextBlock Text="Date" FontSize="16"/>
+                            </GridViewColumnHeader>
+
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Date}" FontWeight="SemiBold"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+
+                        </GridViewColumn>
+                    </GridView>
+
+                </ListView.View>
+
+            </ListView>
+
+            <Grid Grid.Row="2">
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+
+                    <Button Content="Delete complaint"    
+                    Command="{Binding BtnClickDeleteComplain}"
+                    Width="180"
+                    Margin="0,0,50,0"                  
+                    Style="{DynamicResource MaterialDesignRaisedButton}"/>
+
+                    <Button Content="Edit complaint"    
+                    Command="{Binding OpenEditDialogCommand}"
+                    Width="180"
+                    Margin="0,0,50,0"                  
+                    Style="{DynamicResource MaterialDesignRaisedButton}"/>
+
+                    <Button Content="Add complaint"    
+                    Command="{Binding OpenAddDialogCommand}"
+                    Width="180"              
+                    Style="{DynamicResource MaterialDesignRaisedButton}"/>
+
+                </StackPanel>
+
+            </Grid>
+
+        </Grid>
+
+    </materialDesign:DialogHost>
+    
+</Page>

@@ -1,0 +1,145 @@
+﻿<Page x:Class="KP.Views.Houses"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Houses">
+
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+        <TextBlock Text="Your houses"
+                   Background="{DynamicResource PrimaryHueMidBrush}"
+                   FontSize="25"
+                   Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"
+                   TextAlignment="Center"
+                   Padding="12"
+                   FontFamily="Bahnschrift SemiBold SemiCondensed"/>
+
+
+        <ListView ItemsSource="{Binding HousesList}"
+                  Grid.Row="1">
+
+            
+            <ListView.View>
+
+                <GridView>
+
+                    <GridViewColumn Width="175">
+
+                        <GridViewColumnHeader HorizontalAlignment="Center">
+                            <TextBlock Text="Street" FontSize="16"/>
+                        </GridViewColumnHeader>
+
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Street}" TextWrapping="Wrap" FontWeight="SemiBold"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+
+                    </GridViewColumn>
+
+                    <GridViewColumn>
+
+                        <GridViewColumnHeader HorizontalAlignment="Center">
+                            <TextBlock Text="House" FontSize="16"/>
+                        </GridViewColumnHeader>
+
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding HouseNum}" FontWeight="SemiBold" Margin="30,0,0,0"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+
+                    </GridViewColumn>
+
+                    <GridViewColumn>
+
+                        <GridViewColumnHeader HorizontalAlignment="Center">
+                            <TextBlock Text="Apartment" FontSize="16"/>
+                        </GridViewColumnHeader>
+
+
+                        <GridViewColumn.CellTemplate>
+                            <ItemContainerTemplate>
+                                <TextBlock Text="{Binding ApartmentNum}" FontWeight="SemiBold" Margin="50,0,0,0"/>
+                            </ItemContainerTemplate>
+                        </GridViewColumn.CellTemplate>
+
+                    </GridViewColumn>
+
+                    <GridViewColumn>
+
+                        <GridViewColumnHeader HorizontalAlignment="Center">
+                            <TextBlock Text="Area" FontSize="16"/>
+                        </GridViewColumnHeader>
+
+
+                        <GridViewColumn.CellTemplate>
+                            <ItemContainerTemplate>
+                                <TextBlock Text="{Binding Area}" FontWeight="SemiBold" Margin="30,0,0,0"/>
+                            </ItemContainerTemplate>
+                        </GridViewColumn.CellTemplate>
+
+                    </GridViewColumn>
+
+                    <GridViewColumn>
+
+                        <GridViewColumnHeader HorizontalAlignment="Center">
+                            <TextBlock Text="Number of people" FontSize="16"/>
+                        </GridViewColumnHeader>
+
+
+                        <GridViewColumn.CellTemplate>
+                            <ItemContainerTemplate>
+                                <TextBlock Text="{Binding PeopleNum}" FontWeight="SemiBold" Margin="75,0,0,0"/>
+                            </ItemContainerTemplate>
+                        </GridViewColumn.CellTemplate>
+
+                    </GridViewColumn>
+
+                    <GridViewColumn>
+
+                        <GridViewColumnHeader HorizontalAlignment="Center">
+                            <TextBlock Text="Number of rooms" FontSize="16"/>
+                        </GridViewColumnHeader>
+
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding RoomsNum}" FontWeight="SemiBold" Margin="75,0,0,0"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+
+                    </GridViewColumn>
+                    
+                    <GridViewColumn>
+
+                        <GridViewColumnHeader HorizontalAlignment="Center">
+                            <TextBlock Text="Heat meter" FontSize="16"/>
+                        </GridViewColumnHeader>
+
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding HeatMeter}" FontWeight="SemiBold" Margin="50,0,0,0"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+
+                    </GridViewColumn>
+                </GridView>
+
+            </ListView.View>
+
+        </ListView>
+
+    </Grid>
+
+</Page>

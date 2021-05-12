@@ -1,0 +1,84 @@
+﻿<UserControl x:Class="KP.Views.PaymentsDialog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="330" d:DesignWidth="480">
+    
+    <Grid Margin="15" Width="450" Height="300">
+
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="Add payment" FontSize="16" FontWeight="SemiBold" Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"/>
+        <ComboBox ItemsSource="{Binding HousesList}"
+                  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                  Style="{DynamicResource MaterialDesignFloatingHintComboBox}"
+                  VerticalAlignment="Top" FontSize="14" FontWeight="SemiBold"
+                  SelectedItem="{Binding SelectedHouse}"
+                  Width="420"
+                  materialDesign:HintAssist.Hint="House">
+            
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Street}"/>
+                        <TextBlock Text="   "/>
+                        <TextBlock Text="{Binding HouseNum}"/>
+                        <TextBlock Text="/"/>
+                        <TextBlock Text="{Binding ApartmentNum}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <TextBox materialDesign:HintAssist.Hint="Old caunter indicator"
+                 Text="{Binding OldHeatMeter}"  Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"
+                 Style="{DynamicResource MaterialDesignFloatingHintTextBox}" IsReadOnly="True"
+                 FontSize="14" FontWeight="SemiBold" HorizontalAlignment="Center" Width="200"
+                 materialDesign:ValidationAssist.Background="{DynamicResource PrimaryHueLightBrush}"/>
+
+        <TextBox materialDesign:HintAssist.Hint="The indicator of the counter *"
+                 Text="{Binding HeatMeter}" Grid.Row="2" Grid.Column="2"
+                 Style="{DynamicResource MaterialDesignFloatingHintTextBox}"
+                 VerticalAlignment="Center"  HorizontalAlignment="Center" Width="200"
+                 FontSize="14" FontWeight="SemiBold" 
+                 materialDesign:ValidationAssist.Background="{DynamicResource PrimaryHueLightBrush}"/>
+
+        <TextBox materialDesign:HintAssist.Hint="Cost *"
+                 Text="{Binding Cost}" Grid.Row="3" Grid.Column="0"
+                 Style="{DynamicResource MaterialDesignFloatingHintTextBox}"
+                 VerticalAlignment="Center"  HorizontalAlignment="Center" Width="200"
+                 FontSize="14" FontWeight="SemiBold"
+                 materialDesign:ValidationAssist.Background="{DynamicResource PrimaryHueLightBrush}"/>
+
+
+        <StackPanel Orientation="Horizontal" Grid.Row="4" HorizontalAlignment="Center" Grid.ColumnSpan="2">
+
+            <Button IsDefault="True"
+                    Style="{StaticResource MaterialDesignFlatButton}"
+                    Command="{Binding AcceptDialogCommand}">
+                ACCEPT
+            </Button>
+
+            <Button IsCancel="True"
+                    Margin="50,0,0,0"
+                    Style="{StaticResource MaterialDesignFlatButton}"
+                    Command="{Binding CancelDialogCommand}">
+                CANCEL
+            </Button>
+
+        </StackPanel>
+    </Grid>
+</UserControl>
