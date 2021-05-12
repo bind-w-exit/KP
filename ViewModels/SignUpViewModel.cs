@@ -19,7 +19,7 @@ namespace KP.ViewModels
             BtnClickRegister = new DelegateCommand(BtnClickRegisterCommand);
         }
 
-        private string _firstName = "";
+        private string _firstName = ""; 
         public string FirstName
         {
             get { return _firstName; }
